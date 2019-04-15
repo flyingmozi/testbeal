@@ -1,0 +1,29 @@
+{
+  "name": "testbeal",
+  "version": "1.0.0",
+  "description": "test every week",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyingmozi/testbeal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flyingmozi/testbeal/issues"
+  },
+  "homepage": "https://github.com/flyingmozi/testbeal#readme",
+  "dependencies": {
+    "gulp": "^3.6.2",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-livereload": "^4.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "gulp-webserver": "^0.9.1",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}
