@@ -40,17 +40,41 @@
                 height: 100%;
             }
         }
-    }
 
-    .footer{
-        width: 100%;
-        height: pxTorem(50px);
-        border-top: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        i{
-            font-size: pxTorem(25px);
+        .list{
+            width: 100%;
+            height: pxTorem(400px);
+            dl{
+                width: 100%;
+                height: pxTorem(120px);
+                padding: pxTorem(10px);
+                display: flex;
+                align-items: center;
+                dt{
+                    width: pxTorem(110px);
+                    height: pxTorem(110px);
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                dd{
+                    flex: 1;
+                    padding: pxTorem(12px);
+                }
+            }
         }
     }
+
+    // .footer{
+    //     width: 100%;
+    //     height: pxTorem(50px);
+    //     border-top: 1px solid #ccc;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-around;
+    //     i{
+    //         font-size: pxTorem(25px);
+    //     }
+    // }
 }

@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const server = require('gulp-webserver');
 const connect = require('gulp-connect');
@@ -35,8 +36,30 @@ gulp.task('myserver',()=>{
                     'content-type':'text/plain;charset:utf8',
                     'access-control-allow-origin':'*',
                 })
-                res.end()
+                res.end(fs.readFileSync('./src/data/data.json').toString())
             }
         }
     }))
 })
+
+gulp.task('newserver',()=>{
+    connect.server({
+        root:['.'],
+        name:"list",
+        port:8000,
+        livereload:true,
+        fallback:'./src/index.html',
+        middleware:(app)=>{
+            return [proxy('/api',{
+                target:"http://localhost/3000",
+                changeOrigin:true,
+            })]
+        }
+    })
+})
+
+gulp.task('watch',()=>{
+    gulp.watch('./src/css/index.css',['minicss'])
+})
+
+gulp.task('default',['minicss','minijs','myserver','newserver','watch'])

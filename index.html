@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/swiper.min.css">
+    <link rel="stylesheet" href="./src/fonts/iconfont.css">
+    <link rel="stylesheet" href="./dist/css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            <h2>HUPU</h2>
+            <div>
+                <i class="iconfont icon-wode"></i>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="top swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./src/images/I.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./src/images/huixiang.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./src/images/hunsha.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./src/images/secai.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="first-top" id="list">
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./dist/js/flexible.js"></script>
+    <script src="./dist/js/swiper.min.js"></script>
+    <script src="./dist/js/better-scroll.js"></script>
+
+    <script>
+        new Swiper('.top',{
+            autoplay:{
+                delay:1200,
+                disableOnInteraction:false,
+            },
+            loop:true,
+        })
+
+        function ajax(url,method='get',data=null){
+                let xhr = new XMLHttpRequest();
+                xhr.open('get',url);
+                xhr.onreadystatechange = ()=>{
+                    if(xhr.readyState === 4 && xhr.status === 200){
+                        rander(xhr.responseText)
+                    }
+                }
+                xhr.send(null);
+        }
+
+        ajax('http://localhost:3000/api')
+
+        function rander(data){
+            let res = JSON.parse(data);
+            console.log(res)
+            let str = '';
+            res.forEach(item=>{
+                str += `<dl>
+                    <dt><img src='${item.pic}'/></dt>
+                    <dd>${item.name}</dd>
+                    </dl>`;
+                
+            })
+            list.innerHTML = str;
+            str = '';
+        }
+
+
+        new BScroll('.list')
+    </script>
+</body>
+</html>
